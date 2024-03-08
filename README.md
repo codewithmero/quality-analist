@@ -35,7 +35,7 @@ After which you can run the project using "npm run dev" on both frontend, as wel
 
 
 Once you've opened the application on phone (in chrome). You can click the three dot icon at the top left and choose "add to home screen"
-![image](https://github.com/codewithmero/quality-analist/assets/20500860/b38b09e0-fd9e-4362-9465-a9d5d8a7569a)
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/45f25c62-fcf7-401d-92cf-eaff2f0cb11f)
 
 And then the icon to open it will be visible on your phone screen
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/cf088aa5-52c5-4e2d-830a-c571f3fc3723)
