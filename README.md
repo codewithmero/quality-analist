@@ -26,6 +26,9 @@ For backend you'd need the following values in your .env file (create it inside 
 
 cloudinary has been used to save the product image and the generated pdf file; their links are being stored in the database for easy access.
 
+# Note
+check backend/src/db/bConfig.js file; the instructions to connect with MySQL database have been given there (top level comment)
+
 After which you can run the project using "npm run dev" on both frontend, as well as backend; then visit http://localhost:3000 to view and use the app.
 
 # Screenshots
