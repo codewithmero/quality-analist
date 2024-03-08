@@ -33,6 +33,13 @@ After which you can run the project using "npm run dev" on both frontend, as wel
 
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/1a172d9b-247f-4cbd-a68d-c17ecfd3a62a)
 
+
+Once you've opened the application on phone (in chrome). You can click the three dot icon at the top left and choose "add to home screen"
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/b38b09e0-fd9e-4362-9465-a9d5d8a7569a)
+
+And then the icon to open it will be visible on your phone screen
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/4b00cb7e-cd5d-4d17-82f1-52fd8babdaf4)
+
  
 # Screenshots
 - this is the homepage where all the generated reports would be visible
