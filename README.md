@@ -29,8 +29,8 @@ cloudinary has been used to save the product image and the generated pdf file; t
 # Note
 check backend/src/db/bConfig.js file; the instructions to connect with MySQL database have been given there (top level comment)
 
-After which you can run the project using "npm run dev" on both frontend, as well as backend; then visit http://localhost:3000 to view and use the app.
-
+After which you can run the project using "npm run dev" on both frontend, as well as backend; then visit http://localhost:3000 to view and use the app. Similarly to use the app on phone, you need to make a production build using the command "npm run build" to create an optimized build. Once done, use "serve -s build" to get a unique URL to view it on your device.
+ 
 # Screenshots
 - this is the homepage where all the generated reports would be visible
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/dddcfb02-32ee-49f9-bc38-d3a2aa840c50)
