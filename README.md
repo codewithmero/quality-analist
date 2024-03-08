@@ -1,7 +1,10 @@
 # Brief
 
 A quality control report generation app written in ReactJS + NodeJS + MySQL.
-[You can visit here to watch a demo ](https://devfolio-liard.vercel.app/).
+You can watch the demo below:
+[Part I](https://drive.google.com/file/d/18RFKHFKM0Q8rGWeyn8TVxnI90V8JlBt3/view).
+[Part II](https://drive.google.com/file/d/1cpEXjej8XPt374YOVtDDAH9izu50KgwC/view).
+[Part III](https://drive.google.com/file/d/1iW082lBG-T6NfJIiSkvy6JfC1-u87iP_/view).
 
 # Setup
 There are two sections:
