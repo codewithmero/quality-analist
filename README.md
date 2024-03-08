@@ -38,7 +38,8 @@ Once you've opened the application on phone (in chrome). You can click the three
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/b38b09e0-fd9e-4362-9465-a9d5d8a7569a)
 
 And then the icon to open it will be visible on your phone screen
-![image](https://github.com/codewithmero/quality-analist/assets/20500860/4b00cb7e-cd5d-4d17-82f1-52fd8babdaf4)
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/cf088aa5-52c5-4e2d-830a-c571f3fc3723)
+
 
  
 # Screenshots
