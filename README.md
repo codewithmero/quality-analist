@@ -24,7 +24,7 @@ For backend you'd need the following values in your .env file (create it inside 
 - CLOUDINARY_API_SECRET
 - PORT=8000
 
-cloudinary has been used to save the product image and the generated pdf file; their links are being stored in the database for easy access.
+cloudinary has been used to save the product image and the generated pdf file; their links are being stored in the database for easy access. You'd find the Cloudinary credentials (cloud name, api key & api secret) on their website, right after signing up. It is free of cost and I prefer it for my personal projects over AWS S3 Bucket, since it is light on my pocket :)
 
 # Note
 check backend/src/db/bConfig.js file; the instructions to connect with MySQL database have been given there (top level comment)
