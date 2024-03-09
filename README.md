@@ -60,11 +60,13 @@ And then the icon to open it will be visible on your phone screen
 - Once we have generated a report it would redirect us to a view panel where we can read the report
 
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/5a78981f-b737-4249-9890-a372d56f34ec)
+
 while the report is loading, a loader becomes visible. Similarly, report generation phase also as a loader
 
 - we can also search for the reports by clicking on the search icon on the homepage;
 
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/e93f1a03-8c70-4c7d-9f26-2996a7d22385)
+
 it searches based on a lot of factors - item name, contractor name, report name, etc.,
 
 - we also have a nav for quick access;
