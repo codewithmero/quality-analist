@@ -74,7 +74,7 @@ Plus, the quality inspector name field has been removed from the report generati
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/6914d403-9207-4b98-9632-dc7977fecb28)
 
 
-
+# role module
 I've added a role based system (normal users vs admin) and two new modules for admin:
 - Add & View Categories
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/f1e980d6-fa94-480a-b945-6fec8bfac63f)
