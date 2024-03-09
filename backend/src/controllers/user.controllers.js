@@ -2,9 +2,15 @@ import User from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { formatToJSON, generateAccessToken } from "../utils/commonMethods.js";
 import bcrypt from 'bcryptjs';
+import { Op } from 'sequelize';
 
 const getAllUsers = asyncHandler(async (req, res) => {
   let allUsers = formatToJSON(await User.findAll({
+    where: {
+      id: {
+        [Op.ne]: req.user?.id
+      }
+    },
     attributes: [
       'id',
       'fullname',
@@ -51,11 +57,76 @@ const createNewUser = asyncHandler(async (req, res) => {
     secure: true
   };
 
+  let user = formatToJSON(await User.findOne({
+    where: {
+      email: email,
+    }, 
+    attributes: [
+      'id',
+      'fullname',
+      'email',
+      'isAdmin'
+    ]
+  }))
+
   return res.status(201)?.cookie("accessToken", accessToken, cookieOptions).json({
     success: true,
+    user,
     accessToken,
     msg: "A new user has been created successfully."
   })
+});
+
+const getUserById = asyncHandler(async (req, res) => {
+  const { userId } = req.params;
+
+  let user =  formatToJSON(await User.findOne({
+    where: {
+      id: userId
+    },
+    attributes: [
+      'id',
+      'firstname',
+      'lastname',
+      'email'
+    ]
+  }));
+
+  if(!user)
+    throw new Error("Unable to fetch user. Some error occured!");
+
+  return res.status(201)?.json({
+    success: true,
+    user,
+    msg: "User has been fetched successfully."
+  });
+});
+
+const updateUserById = asyncHandler(async (req, res) => {
+
+  const { firstname, lastname, email, id: userId } = req.body;
+
+  let isUpdated = await User.update({
+    firstname,
+    lastname,
+    fullname: `${firstname} ${lastname}`,
+    email
+  }, {
+    where: {
+      id: userId
+    }
+  });
+
+  console.log("is updated:::", isUpdated);
+
+  if(isUpdated?.[0] === 0) {
+    throw new Error("Unable to update user. Some error occured!");
+  } 
+
+  return res.status(201)?.json({
+    success: true,
+    msg: "User has been updated successfully."
+  });
 });
 
 const loginUser = asyncHandler(async (req, res) => {
@@ -89,6 +160,7 @@ const loginUser = asyncHandler(async (req, res) => {
       'id',
       'fullname',
       'email',
+      'isAdmin'
     ]
   }))
 
@@ -121,6 +193,8 @@ const logoutUser = asyncHandler(async (req, res) => {
 export {
   getAllUsers,
   createNewUser,
+  getUserById,
+  updateUserById,
   loginUser,
   logoutUser
 }

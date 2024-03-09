@@ -32,4 +32,23 @@ const getLoggedInUser = () => {
   return userDetails;
 }
 
-export { getAccessToken, isLoggedIn, getLoggedInUser };
+const isAdmin = () => {
+  let isAdmin = false;
+
+  if(typeof window !== "undefined") {
+    let adminVal = localStorage.getItem('is_admin');
+
+    if(adminVal === true || adminVal === "true") {
+      isAdmin = true;
+    }
+  }
+
+  return isAdmin;
+}
+
+export { 
+  getAccessToken, 
+  isLoggedIn, 
+  getLoggedInUser, 
+  isAdmin 
+};

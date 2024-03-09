@@ -1,0 +1,38 @@
+.container > .listing {
+  padding: 0 2rem;
+}
+
+.listing > .users {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+  
+  background: #eee;
+}
+
+.users > .col {
+  flex: 1;
+}
+
+.users > .col,
+.users > .sr-no {
+  margin-bottom: 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.users > .func-ico {
+  display: flex;  
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.func-ico > .ico {
+  font-size: 1.7rem;
+  color: #272727;
+  margin: 0;
+}
+
+.users > .sr-no {
+  width: 2rem;
+}

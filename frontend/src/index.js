@@ -12,6 +12,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchReports from './pages/SearchReports/SearchReports.jsx';
 import Login from './pages/Login/Login.jsx';
 import Signup from './pages/Signup/Signup.jsx';
+import ViewUsers from './pages/ViewUsers/ViewUsers.jsx';
+import EditUser from './pages/EditUser/EditUser.jsx';
+import EditCategory from './pages/AddCategory/AddCategory.jsx';
+import ViewCategory from './pages/ViewCategory/ViewCategory.jsx';
+import AddCategory from './pages/AddCategory/AddCategory.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -41,6 +46,22 @@ const appRouter = createBrowserRouter([
       {
         path: "signup",
         element: <Signup />
+      },
+      {
+        path: "view-users",
+        element: <ViewUsers />
+      },
+      {
+        path: "edit-user",
+        element: <EditUser />
+      },
+      {
+        path: "view-categories",
+        element: <ViewCategory />
+      },
+      {
+        path: "add-category",
+        element: <AddCategory />
       }
     ]
   }

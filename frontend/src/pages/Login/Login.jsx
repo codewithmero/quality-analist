@@ -28,6 +28,8 @@ function Login(props) {
         localStorage.setItem('access_token', `Bearer ${accessToken}`);
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('is_logged_in', true);
+        localStorage.setItem('is_admin', user?.isAdmin);
+        
         navigate("/");
       }
     } catch(err) {

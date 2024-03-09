@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
-import { isLoggedIn } from '../../utils/commonMethods';
+import { isLoggedIn, isAdmin } from '../../utils/commonMethods';
 import "./index.css";
 
 function Header(props) {
@@ -51,6 +51,16 @@ function Header(props) {
                 <li className="nav-link"><NavLink to={`/`} className={({isActive}) => `${isActive ? "active" : ""}`} onClick={() => handleLinkClick()}>Home</NavLink></li>
                 <li className="nav-link"><NavLink to={`/search-reports`} className={({isActive}) => `${isActive ? "active" : ""}`} onClick={() => handleLinkClick()}>Search Report</NavLink></li>
                 <li className="nav-link"><NavLink to={`/generate-report`} className={({isActive}) => `${isActive ? "active" : ""}`} onClick={() => handleLinkClick()}>Generate Report</NavLink></li>
+
+                {
+                  isAdmin() ? (
+                    <>
+                      <li className="nav-link"><NavLink to={`/view-users`} className={({isActive}) => `${isActive ? "active" : ""}`} onClick={() => handleLinkClick()}>View Users</NavLink></li>
+                      <li className="nav-link"><NavLink to={`/view-categories`} className={({isActive}) => `${isActive ? "active" : ""}`} onClick={() => handleLinkClick()}>View Categories</NavLink></li>
+                    </>
+                  ) : null
+                }
+
                 <li className="nav-link" onClick={handleLogout}><NavLink>Logout</NavLink></li>
               </>
             ) : (

@@ -1,0 +1,11 @@
+.top-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+.add-ico {
+  font-size: 2.4rem;
+}

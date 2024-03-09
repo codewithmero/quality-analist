@@ -21,12 +21,14 @@ function Signup(props) {
     try {
       let response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/v1/users`, signupDetails);
 
-      const { success, accessToken } = response?.data;
+      const { success, user, accessToken } = response?.data;
       if(success) {
         // IF THE IGNUP IS SUCCESSFUL, WE WOULD MOVE ONTO THE HOMEPAGE
         // AND SAVE THE ACCESS TOKEN IN LOCALSTORAGE TO MAKE SECURE REQUESTS;
         localStorage.setItem('access_token', `Bearer ${accessToken}`);
+        localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('is_logged_in', true);
+        localStorage.setItem('is_admin', user?.isAdmin);
         navigate("/");
       }
     } catch(err) {

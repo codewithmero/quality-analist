@@ -40,7 +40,12 @@ const createNewCategory = asyncHandler(async (req, res) => {
   });
 });
 
+const getCategoryById = asyncHandler(async (req, res) => {
+  
+});
+
 export {
   getAllCategories,
-  createNewCategory
+  createNewCategory,
+  getCategoryById
 }

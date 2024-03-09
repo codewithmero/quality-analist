@@ -21,6 +21,11 @@ const User = sequelizeConfig.define(
       type: DataTypes.STRING,
       allowNull: false
     },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: false,
+    },
     password: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -31,7 +36,7 @@ const User = sequelizeConfig.define(
   }
 );
 
-User.sync({ alter: true }).then(() => { console.log("User model has been synced.") });
+// User.sync({ alter: true }).then(() => { console.log("User model has been synced.") });
 
 // HASHING USER PASSWORD;
 User.beforeCreate(async (user, options) => {
