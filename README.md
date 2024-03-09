@@ -65,4 +65,13 @@ it searches based on a lot of factors - item name, contractor name, report name,
 
 Right now, the user authentication and role access hasn't been implemented on the frontend due to the time constraints. But I've created the required controllers at the backend.
 
+# update (9/03/2024)
+I've added user auth on the frontend. Now users can login and only the reports that they've generated would be visible in their timeline. They can only search among their own reports.
+
+Plus, the quality inspector name field has been removed from the report generation form, since it would automatically be added for logged in user.
+
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/1e134b30-ce3c-42b2-8c5b-4b9c87dda4c1)
+![image](https://github.com/codewithmero/quality-analist/assets/20500860/6914d403-9207-4b98-9632-dc7977fecb28)
+
+
 
