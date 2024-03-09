@@ -35,32 +35,40 @@ After which you can run the project using "npm run dev" on both frontend, as wel
 
 
 Once you've opened the application on phone (in chrome). You can click the three dot icon at the top left and choose "add to home screen"
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/45f25c62-fcf7-401d-92cf-eaff2f0cb11f)
 
 And then the icon to open it will be visible on your phone screen
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/cf088aa5-52c5-4e2d-830a-c571f3fc3723)
 
 
  
 # Screenshots
 - this is the homepage where all the generated reports would be visible
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/dddcfb02-32ee-49f9-bc38-d3a2aa840c50)
 
 - By clicking on the green add icon below, we can generate a new report. The interface is something like this
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/856d7e33-abd4-453e-801a-3057c826ab1a)
 
 - By clicking the camera icon, we can capture the image
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/895158a5-7554-4bf6-963d-498a11ffa729)
 
 - Once we have generated a report it would redirect us to a view panel where we can read the report
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/5a78981f-b737-4249-9890-a372d56f34ec)
 while the report is loading, a loader becomes visible. Similarly, report generation phase also as a loader
 
 - we can also search for the reports by clicking on the search icon on the homepage;
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/e93f1a03-8c70-4c7d-9f26-2996a7d22385)
 it searches based on a lot of factors - item name, contractor name, report name, etc.,
 
 - we also have a nav for quick access;
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/c39c411f-5fa1-4c64-bb62-de33761596ee)
 
 Right now, the user authentication and role access hasn't been implemented on the frontend due to the time constraints. But I've created the required controllers at the backend.
