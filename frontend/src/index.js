@@ -14,9 +14,9 @@ import Login from './pages/Login/Login.jsx';
 import Signup from './pages/Signup/Signup.jsx';
 import ViewUsers from './pages/ViewUsers/ViewUsers.jsx';
 import EditUser from './pages/EditUser/EditUser.jsx';
-import EditCategory from './pages/AddCategory/AddCategory.jsx';
 import ViewCategory from './pages/ViewCategory/ViewCategory.jsx';
 import AddCategory from './pages/AddCategory/AddCategory.jsx';
+import ProtectedRoutes from './components/ProtectedRoutes.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -25,19 +25,19 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home />
+        element: <ProtectedRoutes component={Home} />
       },
       {
         path: "generate-report",
-        element: <GenerateReport />
+        element: <ProtectedRoutes component={GenerateReport} />
       },
       {
         path: "view-report",
-        element: <ViewReport />
+        element: <ProtectedRoutes component={ViewReport} />
       },
       {
         path: "search-reports",
-        element: <SearchReports />
+        element: <ProtectedRoutes component={SearchReports} />
       },
       {
         path: "login",
@@ -49,19 +49,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "view-users",
-        element: <ViewUsers />
+        element: <ProtectedRoutes component={ViewUsers} admin={true} />
       },
       {
         path: "edit-user",
-        element: <EditUser />
+        element: <ProtectedRoutes component={EditUser} admin={true} />
       },
       {
         path: "view-categories",
-        element: <ViewCategory />
+        element: <ProtectedRoutes component={ViewCategory} admin={true} />
       },
       {
         path: "add-category",
-        element: <AddCategory />
+        element: <ProtectedRoutes component={AddCategory} admin={true} />
       }
     ]
   }
