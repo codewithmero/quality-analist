@@ -66,7 +66,7 @@ it searches based on a lot of factors - item name, contractor name, report name,
 Right now, the user authentication and role access hasn't been implemented on the frontend due to the time constraints. But I've created the required controllers at the backend.
 
 # update (9/03/2024)
-I've added user auth on the frontend. Now users can login and only the reports that they've generated would be visible in their timeline. They can only search among their own reports.
+I've added user auth on the frontend. Now users can login and only the reports that they've generated would be visible in their timeline. They can only search among their own reports. [Here's the demo video](https://drive.google.com/file/d/1E06XBSWFpwdC0fT02NeFu0f2A_7U-TYA/view).
 
 Plus, the quality inspector name field has been removed from the report generation form, since it would automatically be added for logged in user.
 
