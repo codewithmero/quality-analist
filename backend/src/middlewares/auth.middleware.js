@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 
 const checkAuth = (req, res, next) => {
-  console.log("Headers", req.headers);
-  console.log("Cookie", req.cookies);
   let accessToken = null;
 
   if(typeof req.headers["Authorization"] !== "undefined") {
