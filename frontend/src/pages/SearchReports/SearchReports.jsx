@@ -4,19 +4,28 @@ import axios from 'axios';
 import "./index.css";
 import { FaSearch } from "react-icons/fa";
 import ReportCard from '../../components/ReportCard/ReportCard';
+import { getAccessToken } from '../../utils/commonMethods';
 
 function SearchReports(props) {
   const navigate = useNavigate();
   const [reports, setReports] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [resultMsg, setResultMsg] = useState("No reports have been searched yet.");
 
   const fetchReportsBySearchTerm = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/search/${searchTerm}`);
+      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/search/${searchTerm}`, {
+        headers: {
+          'Authorization': getAccessToken()
+        }
+      });
       const { success, reports: reportsData } = response.data;
 
       if(success) {
         setReports(reportsData);
+        if(reportsData?.length === 0) {
+          setResultMsg("No reports have been found.")
+        }
       }
 
     } catch (err) {
@@ -55,7 +64,7 @@ function SearchReports(props) {
                 ))
               }
             </>
-          ) : <p className="warning-message">{`No reports have been searched yet.`}</p>
+          ) : <p className="warning-message">{resultMsg}</p>
         }
       </div>
     </div>

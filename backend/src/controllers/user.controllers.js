@@ -44,7 +44,7 @@ const createNewUser = asyncHandler(async (req, res) => {
     throw new Error("Unable to create new user. Some error occured!");
   }
 
-  let { accessToken } = generateAccessToken({idd: newUser?.id, fullname: newUser?.fullname, email: newUser?.email});
+  let { accessToken } = generateAccessToken({id: newUser?.id, fullname: newUser?.fullname, email: newUser?.email});
 
   let cookieOptions = {
     httpOnly: true,
@@ -53,6 +53,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 
   return res.status(201)?.cookie("accessToken", accessToken, cookieOptions).json({
     success: true,
+    accessToken,
     msg: "A new user has been created successfully."
   })
 });

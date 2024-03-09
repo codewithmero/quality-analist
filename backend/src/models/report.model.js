@@ -16,8 +16,8 @@ const Report = sequelizeConfig.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    qualityInspectorName: {
-      type: DataTypes.STRING,
+    qualityInspectorId: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     itemName: {
@@ -74,6 +74,6 @@ const Report = sequelizeConfig.define(
   }
 );
 
-// Report.sync({ alter: true }).then(() => { console.log("Report model has been synced.") });
+Report.sync({ alter: true }).then(() => { console.log("Report model has been synced.") });
 
 export default Report;

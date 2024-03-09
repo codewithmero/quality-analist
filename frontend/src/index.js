@@ -10,6 +10,8 @@ import Home from './pages/Home/Home.jsx';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchReports from './pages/SearchReports/SearchReports.jsx';
+import Login from './pages/Login/Login.jsx';
+import Signup from './pages/Signup/Signup.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const appRouter = createBrowserRouter([
         path: "search-reports",
         element: <SearchReports />
       },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "signup",
+        element: <Signup />
+      }
     ]
   }
 ])
@@ -44,4 +54,4 @@ root.render(
 );
 
 // Enabling service worker;
-serviceWorker();
+// serviceWorker();

@@ -3,11 +3,12 @@ import {
   getAllCategories,
   createNewCategory
 } from "../controllers/category.controllers.js";
+import { checkAuth } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
 router.route("/")
-  .get(getAllCategories)
-  .post(createNewCategory);
+  .get(checkAuth, getAllCategories)
+  .post(checkAuth, createNewCategory);
 
 export default router;

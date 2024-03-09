@@ -18,3 +18,20 @@ body {
   color: #272727;
   box-sizing: border-box; 
 }
+
+.container {
+  min-height: 90vh;
+}
+
+.login-btn,
+.signup-btn {
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 0.9rem 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  font-size: 1rem;
+
+  margin-top: 2rem;
+}

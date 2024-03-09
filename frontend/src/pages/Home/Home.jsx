@@ -2,19 +2,26 @@ import React, { useEffect, useState } from 'react';
 import ReportCard from '../../components/ReportCard/ReportCard';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FaArrowRightLong } from "react-icons/fa6";
-import axios from 'axios';
 import { FaSearch } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
+import { getAccessToken, getLoggedInUser } from '../../utils/commonMethods';
+import axios from 'axios';
 import "./index.css";
 
 function Home(props) {
   const navigate = useNavigate();
+  let loggedInUser = getLoggedInUser();
+
   const [reports, setReports] = useState([]);
   const [isServerAvailable, setIsServerAvailable] = useState(true);
 
   const fetchHomeData = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/home/1`);
+      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/home`, {
+        headers: {
+          'Authorization': getAccessToken()
+        }
+      });
       const { success, reports: reportsList } = response?.data;
       
       if(success) {
@@ -43,7 +50,7 @@ function Home(props) {
       }
 
       <div className="top-column-bar">
-        <h1>Welcome, Rudra</h1>
+        <h1>Welcome, {loggedInUser?.fullname}</h1>
         <NavLink to="/search-reports"><FaSearch className="home search-ico" /></NavLink>
       </div>
 

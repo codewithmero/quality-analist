@@ -48,6 +48,8 @@ const createNewReport = asyncHandler(async (req, res) => {
   fs.renameSync(req.file.path, "public/img/quality.jpg");
   let localUploadedImgPath = "public/img/quality.jpg";
 
+  let { id: loggedInUserId, fullname: loggedInUserName } = req.user;
+
   // UPLOADING THE IMAGE ON CLOUDINARY;
   let uploadedImgResponse = await uploadOnCloudinary(localUploadedImgPath);
 
@@ -57,7 +59,6 @@ const createNewReport = asyncHandler(async (req, res) => {
     reportName,
     organization,
     itemName,
-    qualityInspectorName,
     contractorName,
     inspectionStatus,
     generalRemarks,
@@ -76,7 +77,7 @@ const createNewReport = asyncHandler(async (req, res) => {
     organization,
     itemName,
     inspectionNumber,
-    qualityInspectorName,
+    qualityInspectorId: loggedInUserId,
     contractNumber,
     contractorName,
     generalRemarks,
@@ -102,7 +103,7 @@ const createNewReport = asyncHandler(async (req, res) => {
     itemName: newReport?.itemName,
     inspectionNumber: newReport?.inspectionNumber,
     contractNumber: newReport?.contractNumber,
-    qualityInspectorName: newReport?.qualityInspectorName,
+    qualityInspectorName: loggedInUserName,
     contractorName: newReport?.contractorName,
     generalRemarks: newReport?.generalRemarks,
     projectName: newReport?.projectName,
@@ -122,7 +123,6 @@ const createNewReport = asyncHandler(async (req, res) => {
   // FOR LATER USE;
   let localPdfPath = "public/reports/report.pdf";
   let uploadedReportResponse = await uploadOnCloudinary(localPdfPath);
-  console.log("Uploaded report response:", uploadedReportResponse);
   
   let report = uploadedReportResponse?.url || uploadedReportResponse?.secure_url;
 
@@ -155,7 +155,7 @@ const createNewReport = asyncHandler(async (req, res) => {
   });
 });
 
-const getAllReportsByUserId = asyncHandler(async(req, res) => {
+const getAllReportsByLoggedInUser = asyncHandler(async(req, res) => {
 
   // (JOIN) RULES;
   Category.hasMany(Report, { foreignKey: 'reportCategory' });
@@ -168,6 +168,9 @@ const getAllReportsByUserId = asyncHandler(async(req, res) => {
     include:[
       {
         model: Report,
+        where: {
+          qualityInspectorId: req.user?.id
+        },
         attributes: [
           'id', 
           'reportFile', 
@@ -179,7 +182,7 @@ const getAllReportsByUserId = asyncHandler(async(req, res) => {
         ],
       }
     ]
-  }))
+  }));
 
   let reports = categoryReportData?.map(item => {
     let formattedReports = item?.reports?.map(report => ({
@@ -205,10 +208,10 @@ const getReportsBySearchTerm = asyncHandler(async (req, res) => {
     where: {
       [Op.or]: [
         { reportName: { [Op.like]: `%${searchTerm}%` } },
-        { qualityInspectorName: { [Op.like]: `%${searchTerm}%` } },
         { projectName: { [Op.like]: `%${searchTerm}%` } },
         { itemName: { [Op.like]: `%${searchTerm}%` } },
       ],
+      qualityInspectorId: req.user.id
     },
     attributes: [
       'id', 
@@ -218,7 +221,6 @@ const getReportsBySearchTerm = asyncHandler(async (req, res) => {
       'itemName', 
       'contractorName', 
       'createdAt', 
-      'qualityInspectorName',
       'inspectionStatus'
     ],
   }));
@@ -242,6 +244,6 @@ const getReportsBySearchTerm = asyncHandler(async (req, res) => {
 export {
   getAllReports,
   createNewReport,
-  getAllReportsByUserId,
+  getAllReportsByLoggedInUser,
   getReportsBySearchTerm,
 }

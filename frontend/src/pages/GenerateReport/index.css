@@ -3,6 +3,8 @@ form {
 }
 
 input[type="text"],
+input[type="email"],
+input[type="password"],
 textarea {
   width: 100%;
   border :1px solid transparent;
@@ -26,7 +28,9 @@ textarea {
   font-weight: 500;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   height: 3rem;
   padding :1rem;
 }

@@ -2,23 +2,24 @@ import express from 'express';
 import {
   getAllReports,
   createNewReport,
-  getAllReportsByUserId,
+  getAllReportsByLoggedInUser,
   getReportsBySearchTerm
 } from "../controllers/report.controllers.js";
 import categoryRoutes from "./category.router.js";
 import fileUpload from '../middlewares/multer.middleware.js';
+import { checkAuth } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 
 router.route("/")
-  .get(getAllReports)
-  .post(fileUpload.single('report-img'), createNewReport);
+  .get(checkAuth, getAllReports)
+  .post(checkAuth, fileUpload.single('report-img'), createNewReport);
 
 router.route("/search/:searchTerm")
-  .get(getReportsBySearchTerm);
+  .get(checkAuth, getReportsBySearchTerm);
 
-router.route("/home/:userId")
-  .get(getAllReportsByUserId);
+router.route("/home")
+  .get(checkAuth, getAllReportsByLoggedInUser);
 
 router.use("/category", categoryRoutes);
 

@@ -7,6 +7,7 @@ import { FaCamera } from "react-icons/fa6";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import Select from 'react-select';
 import "./index.css";
+import { getAccessToken } from '../../utils/commonMethods';
 // import "./spinner.css";
 
 const verifyOptions = [
@@ -52,7 +53,11 @@ function GenerateReport(props) {
         payload.append(key, report?.[key]);
       })
 
-      let response = await axios.post(`http://localhost:8000/api/v1/reports`, payload);
+      let response = await axios.post(`http://localhost:8000/api/v1/reports`, payload, {
+        headers: {
+          'Authorization': getAccessToken()
+        }
+      });
       const { success, report: newReport } = response?.data;
       if(success) {
         setPhotos([]);
@@ -96,7 +101,11 @@ function GenerateReport(props) {
 
   const fetchCategoryList = async () => {
     try {
-      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/category`);
+      let response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/v1/reports/category`, {
+        headers: {
+          'Authorization': getAccessToken()
+        }
+      });
       const { success, categories: categoryList } = response?.data;
 
       if(success) {
@@ -150,12 +159,6 @@ function GenerateReport(props) {
             <label htmlFor="organization">Organization:</label>
             <br />
             <input type="text" placeholder="Enter the item name" name="organization" onChange={handleChange} />
-        </div>
-        
-        <div className="form-group">
-            <label htmlFor="quality-inspector">Quality Inspector Name:</label>
-            <br />
-            <input type="text" placeholder="Enter the item name" name="qualityInspectorName" onChange={handleChange} />
         </div>
         
         <div className="form-group">
