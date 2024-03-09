@@ -91,6 +91,8 @@ I've added a role based system (normal users vs admin) and two new modules for a
 
 
 These Options can be viewed from the navigation panel. [Here's the demo](https://drive.google.com/file/d/1fa8maM23VlHQszTuoGc_rAszlkcaiFTS/view)
+[Additional Notes](https://drive.google.com/file/d/1tFKFacUjcX5tTpHLzpGL9OrCUtEVbHGw/view)
+
 ![image](https://github.com/codewithmero/quality-analist/assets/20500860/69edcc82-414b-4c75-8462-c61d09732751)
 
 
